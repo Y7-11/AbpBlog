@@ -7,7 +7,7 @@ namespace AbpBlog.Web
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplication<AbpBlogWebModule>();
+            services.AddApplication<AbpBlogHttpApiHostingModule>();
         }
 
         public void Configure(IApplicationBuilder app)
