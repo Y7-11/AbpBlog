@@ -4,5 +4,12 @@
         <name>AbpBlog.HttpApi</name>
     </assembly>
     <members>
+        <member name="M:AbpBlog.HttpApi.Controllers.BlogController.InsertPostAsync(AbpBlog.Application.Contracts.Blog.PostDto)">
+            <summary>
+            添加博客
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
