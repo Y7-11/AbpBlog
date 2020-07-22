@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
 
@@ -8,7 +8,10 @@
   
   <ItemGroup>    
     <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="3.0.4" />
-    <ProjectReference Include="..\AbpBlog.Domain.Shared\AbpBlog.Domain.Shared.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\AbpBlog.Domain\AbpBlog.Domain.csproj" />
   </ItemGroup>
 
 
