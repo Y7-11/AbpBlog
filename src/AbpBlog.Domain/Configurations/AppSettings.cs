@@ -14,6 +14,11 @@ namespace AbpBlog.Domain
         private static readonly IConfigurationRoot _config;
 
         /// <summary>
+        /// 当前API版本，从appsettings.json获取
+        /// </summary>
+        public static string ApiVersion => _config["ApiVersion"];
+
+        /// <summary>
         /// Constructor
         /// </summary>
         static AppSettings()

@@ -11,6 +11,7 @@
     <ProjectReference Include="..\AbpBlog.EntityFrameworkCore\AbpBlog.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\AbpBlog.HttpApi\AbpBlog.HttpApi.csproj" />
     <ProjectReference Include="..\AbpBlog.Swagger\AbpBlog.Swagger.csproj" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="5.1.2" />
     <PackageReference Include="Volo.Abp.Autofac" Version="3.0.4" />
   </ItemGroup>
 
