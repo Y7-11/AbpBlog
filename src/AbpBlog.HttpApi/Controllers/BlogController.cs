@@ -1,6 +1,7 @@
 ﻿using AbpBlog.Application.Blog;
 using AbpBlog.Application.Contracts.Blog;
 using AbpBlog.ToolKits.Base;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace AbpBlog.HttpApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     [ApiExplorerSettings(GroupName = Grouping.GroupName_v1)]
     public class BlogController : AbpController
     {
@@ -57,6 +59,7 @@ namespace AbpBlog.HttpApi.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ServiceResult<PostDto>> GetPostAsync([Required] int id)
         {
             return await _blogService.GetPostAsync(id);

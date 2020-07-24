@@ -29,7 +29,13 @@ namespace AbpBlog.Swagger.Filters
                     Name = "HelloWorld",
                     Description = "通用公共接口",
                     ExternalDocs = new OpenApiExternalDocs { Description = "这里是一些通用的公共接口" }
+                },
+                new OpenApiTag {
+                    Name = "Auth",
+                    Description = "JWT模式认证授权",
+                    ExternalDocs = new OpenApiExternalDocs { Description = "JSON Web Token" 
                 }
+}
             };
             // 按照Name升序排序
             swaggerDoc.Tags = tags.OrderBy(x => x.Name).ToList();

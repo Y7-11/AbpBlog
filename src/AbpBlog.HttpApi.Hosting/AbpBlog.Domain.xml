@@ -148,6 +148,11 @@
             当前API版本，从appsettings.json获取
             </summary>
         </member>
+        <member name="T:AbpBlog.Domain.AppSettings.GitHub">
+            <summary>
+            GitHub
+            </summary>
+        </member>
         <member name="M:AbpBlog.Domain.AppSettings.#cctor">
             <summary>
             Constructor
@@ -161,6 +166,46 @@
         <member name="P:AbpBlog.Domain.AppSettings.ConnectionStrings">
             <summary>
             ConnectionStrings
+            </summary>
+        </member>
+        <member name="F:AbpBlog.Domain.Configurations.GitHubConfig.API_Authorize">
+            <summary>
+            GET请求，跳转GitHub登录界面，获取用户授权，得到code
+            </summary>
+        </member>
+        <member name="F:AbpBlog.Domain.Configurations.GitHubConfig.API_AccessToken">
+            <summary>
+            POST请求，根据code得到access_token
+            </summary>
+        </member>
+        <member name="F:AbpBlog.Domain.Configurations.GitHubConfig.API_User">
+            <summary>
+            GET请求，根据access_token得到用户信息
+            </summary>
+        </member>
+        <member name="F:AbpBlog.Domain.Configurations.GitHubConfig.UserId">
+            <summary>
+            Github UserId
+            </summary>
+        </member>
+        <member name="F:AbpBlog.Domain.Configurations.GitHubConfig.Client_ID">
+            <summary>
+            Client ID
+            </summary>
+        </member>
+        <member name="F:AbpBlog.Domain.Configurations.GitHubConfig.Client_Secret">
+            <summary>
+            Client Secret
+            </summary>
+        </member>
+        <member name="F:AbpBlog.Domain.Configurations.GitHubConfig.Redirect_Uri">
+            <summary>
+            Authorization callback URL
+            </summary>
+        </member>
+        <member name="F:AbpBlog.Domain.Configurations.GitHubConfig.ApplicationName">
+            <summary>
+            Application name
             </summary>
         </member>
     </members>
