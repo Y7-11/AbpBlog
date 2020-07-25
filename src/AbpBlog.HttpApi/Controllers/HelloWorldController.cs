@@ -1,5 +1,6 @@
 ﻿using AbpBlog.Helloword;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using Volo.Abp.AspNetCore.Mvc;
 using static AbpBlog.Domain.Shared.AbpBlogConsts;
 
@@ -21,6 +22,13 @@ namespace AbpBlog.HttpApi.Controllers
         public string HelloWorld()
         {
             return _helloWorldService.HelloWorld();
+        }
+
+        [HttpGet]
+        [Route("Exception")]
+        public string Exception()
+        {
+            throw new NotImplementedException("这是一个未实现的异常接口");
         }
     }
 }

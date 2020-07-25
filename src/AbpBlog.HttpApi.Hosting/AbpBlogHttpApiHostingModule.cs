@@ -11,6 +11,12 @@ using Volo.Abp.Modularity;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using AbpBlog.Domain;
+using AbpBlog.HttpApi.Hosting.Middleware;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+using Volo.Abp.AspNetCore.Mvc.ExceptionHandling;
+using AbpBlog.HttpApi.Hosting.Filters;
 
 namespace AbpBlog.Web
 {
@@ -44,13 +50,23 @@ namespace AbpBlog.Web
 
             context.Services.AddAuthorization();
             context.Services.AddHttpClient();
+
+            Configure<MvcOptions>(options =>
+            {
+                var filterMetadata = options.Filters.FirstOrDefault(x => x is ServiceFilterAttribute attribute && attribute.ServiceType.Equals(typeof(AbpExceptionFilter)));
+
+                //移除abp异常Filter
+                options.Filters.Remove(filterMetadata);
+                // 添加自己实现的 MeowvBlogExceptionFilter
+                options.Filters.Add(typeof(AbpBlogExceptionFilter));
+            });
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
         {
             var app = context.GetApplicationBuilder();
             var env = context.GetEnvironment();
-
+   
             // 环境变量，开发环境
             if (env.IsDevelopment())
             {
@@ -66,6 +82,9 @@ namespace AbpBlog.Web
 
             // 认证授权
             app.UseAuthorization();
+
+            // 异常处理中间件
+            app.UseMiddleware<ExceptionHandlerMiddleware>();
 
             // 路由映射
             app.UseEndpoints(endpoints =>
