@@ -143,6 +143,16 @@
             配置文件的根节点
             </summary>
         </member>
+        <member name="T:AbpBlog.Domain.AppSettings.Caching">
+            <summary>
+            Caching
+            </summary>
+        </member>
+        <member name="P:AbpBlog.Domain.AppSettings.Caching.RedisConnectionString">
+            <summary>
+            RedisConnectionString
+            </summary>
+        </member>
         <member name="P:AbpBlog.Domain.AppSettings.ApiVersion">
             <summary>
             当前API版本，从appsettings.json获取

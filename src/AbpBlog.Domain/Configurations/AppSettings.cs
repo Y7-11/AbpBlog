@@ -15,6 +15,17 @@ namespace AbpBlog.Domain
         private static readonly IConfigurationRoot _config;
 
         /// <summary>
+        /// Caching
+        /// </summary>
+        public static class Caching
+        {
+            /// <summary>
+            /// RedisConnectionString
+            /// </summary>
+            public static string RedisConnectionString => _config["Caching:RedisConnectionString"];
+        }
+
+        /// <summary>
         /// 当前API版本，从appsettings.json获取
         /// </summary>
         public static string ApiVersion => _config["ApiVersion"];
