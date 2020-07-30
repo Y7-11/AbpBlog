@@ -138,6 +138,11 @@
             appsettings.json配置文件数据读取类
             </summary>
         </member>
+        <member name="T:AbpBlog.Domain.AppSettings.Hangfire">
+            <summary>
+            Hangfire
+            </summary>
+        </member>
         <member name="F:AbpBlog.Domain.AppSettings._config">
             <summary>
             配置文件的根节点

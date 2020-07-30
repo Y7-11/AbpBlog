@@ -13,10 +13,10 @@ using System;
 using AbpBlog.Domain;
 using AbpBlog.HttpApi.Hosting.Middleware;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Linq;
 using Volo.Abp.AspNetCore.Mvc.ExceptionHandling;
 using AbpBlog.HttpApi.Hosting.Filters;
+using AbpBlog.BackgroundJobs;
 
 namespace AbpBlog.Web
 {
@@ -24,6 +24,7 @@ namespace AbpBlog.Web
            typeof(AbpAspNetCoreMvcModule),
            typeof(AbpAutofacModule),
            typeof(AbpBlogHttpApiModule),
+           typeof(AbpBlogBackgroundJobsModule),
            typeof(AbpBlogSwaggerModule),
            typeof(AbpBlogFrameworkCoreModule)
 
@@ -50,7 +51,7 @@ namespace AbpBlog.Web
 
             context.Services.AddAuthorization();
             context.Services.AddHttpClient();
-
+            //context.Services.AddTransient<IHostedService, HelloWorldJob>();
             Configure<MvcOptions>(options =>
             {
                 var filterMetadata = options.Filters.FirstOrDefault(x => x is ServiceFilterAttribute attribute && attribute.ServiceType.Equals(typeof(AbpExceptionFilter)));
