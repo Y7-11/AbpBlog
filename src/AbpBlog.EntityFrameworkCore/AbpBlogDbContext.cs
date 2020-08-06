@@ -1,4 +1,5 @@
 ﻿using AbpBlog.Domain.Blog;
+using AbpBlog.Domain.Wallpaper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace AbpBlog.EntityFrameworkCore
         public DbSet<PostTag> PostTags { get; set; }
 
         public DbSet<FriendLink> FriendLinks { get; set; }
+
+        public DbSet<Wallpaper> Wallpapers { get; set; }
 
         public AbpBlogDbContext(DbContextOptions<AbpBlogDbContext> options) : base(options)
         {

@@ -56,7 +56,9 @@ namespace AbpBlog.BackgroundJobs
             });
 
             var service = context.ServiceProvider;
-            service.UseHangfireTest();
+
+            //service.UseHangfireTest();
+            service.UseWallpaperJob();
         }
     }
 }

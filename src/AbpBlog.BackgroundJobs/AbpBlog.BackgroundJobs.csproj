@@ -16,7 +16,8 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\AbpBlog.Domain\AbpBlog.Domain.csproj" />
+    <ProjectReference Include="..\AbpBlog.Application.Contracts\AbpBlog.Application.Contracts.csproj" />
+    <ProjectReference Include="..\AbpBlog.ToolKits\AbpBlog.ToolKits.csproj" />
   </ItemGroup>
 
   

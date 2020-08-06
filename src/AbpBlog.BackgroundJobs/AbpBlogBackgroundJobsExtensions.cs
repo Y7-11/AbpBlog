@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using System.Text;
 using Hangfire;
+using AbpBlog.BackgroundJobs.Jobs.Wallpapers;
 
 namespace AbpBlog.BackgroundJobs
 {
@@ -17,6 +18,17 @@ namespace AbpBlog.BackgroundJobs
 
             //RecurringJob.AddOrUpdate()是定期作业按指定的计划触发任务，同时还有Enqueue、Schedule、ContinueJobWith等等，
             //可以看一下Hangfire官方文档：https://docs.hangfire.io/en/latest/
+        }
+
+        /// <summary>
+        /// 壁纸数据抓取
+        /// </summary>
+        /// <param name="service"></param>
+        public static void UseWallpaperJob(this IServiceProvider service)
+        {
+            var job = service.GetService<WallpaperJob>();
+
+            RecurringJob.AddOrUpdate("壁纸数据抓取", () => job.ExecuteAsync(), CronType.Hour(1, 3));
         }
     }
 }

@@ -17,6 +17,11 @@ namespace AbpBlog.Domain.Shared
             public const string PostTags = "Post_Tags";
 
             public const string Friendlinks = "Friendlinks";
+
+            /// <summary>
+            /// 手机壁纸
+            /// </summary>
+            public const string Wallpapers = "Wallpapers";
         }
     }
 }
