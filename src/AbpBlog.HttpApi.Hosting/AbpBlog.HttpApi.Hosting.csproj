@@ -8,6 +8,7 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\AbpBlog.BackgroundJobs\AbpBlog.BackgroundJobs.csproj" />
     <ProjectReference Include="..\AbpBlog.EntityFrameworkCore\AbpBlog.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\AbpBlog.HttpApi\AbpBlog.HttpApi.csproj" />
     <ProjectReference Include="..\AbpBlog.Swagger\AbpBlog.Swagger.csproj" />

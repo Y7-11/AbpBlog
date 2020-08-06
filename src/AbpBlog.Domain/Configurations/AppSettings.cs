@@ -9,6 +9,16 @@ namespace AbpBlog.Domain
     /// </summary>
     public class AppSettings
     {
+
+        /// <summary>
+        /// Hangfire
+        /// </summary>
+        public static class Hangfire
+        {
+            public static string Login => _config["Hangfire:Login"];
+
+            public static string Password => _config["Hangfire:Password"];
+        }
         /// <summary>
         /// 配置文件的根节点
         /// </summary>

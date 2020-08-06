@@ -13,10 +13,11 @@ using System;
 using AbpBlog.Domain;
 using AbpBlog.HttpApi.Hosting.Middleware;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Linq;
 using Volo.Abp.AspNetCore.Mvc.ExceptionHandling;
 using AbpBlog.HttpApi.Hosting.Filters;
+using AbpBlog.BackgroundJobs;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace AbpBlog.Web
 {
@@ -24,6 +25,7 @@ namespace AbpBlog.Web
            typeof(AbpAspNetCoreMvcModule),
            typeof(AbpAutofacModule),
            typeof(AbpBlogHttpApiModule),
+           typeof(AbpBlogBackgroundJobsModule),
            typeof(AbpBlogSwaggerModule),
            typeof(AbpBlogFrameworkCoreModule)
 
@@ -50,7 +52,7 @@ namespace AbpBlog.Web
 
             context.Services.AddAuthorization();
             context.Services.AddHttpClient();
-
+            //context.Services.AddTransient<IHostedService, HelloWorldJob>();
             Configure<MvcOptions>(options =>
             {
                 var filterMetadata = options.Filters.FirstOrDefault(x => x is ServiceFilterAttribute attribute && attribute.ServiceType.Equals(typeof(AbpExceptionFilter)));
@@ -59,6 +61,14 @@ namespace AbpBlog.Web
                 options.Filters.Remove(filterMetadata);
                 // 添加自己实现的 MeowvBlogExceptionFilter
                 options.Filters.Add(typeof(AbpBlogExceptionFilter));
+            });
+            //设置swagger中的url
+            context.Services.AddRouting(options => 
+            {
+                // 设置URL为小写
+                options.LowercaseUrls = true;
+                // 在生成的URL后面添加斜杠
+                options.AppendTrailingSlash = true;
             });
         }
 
@@ -73,6 +83,21 @@ namespace AbpBlog.Web
                 // 生成异常页面
                 app.UseDeveloperExceptionPage();
             }
+
+            //该中间件添加了严格传输安全头
+            app.UseHsts();
+
+            //使用默认跨域配置
+            app.UseCors();
+
+            //HTTP请求转HTTPS
+            app.UseHttpsRedirection();
+
+            //转发将标头代理到当前请求，配合 Nginx 使用，获取用户真实IP
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
 
             // 路由
             app.UseRouting();
