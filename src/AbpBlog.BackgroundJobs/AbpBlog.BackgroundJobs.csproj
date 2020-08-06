@@ -4,5 +4,10 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
+    <PackageReference Include="PuppeteerSharp" Version="2.0.4" />
+  </ItemGroup>
 
 </Project>
