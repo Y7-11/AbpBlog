@@ -223,6 +223,38 @@
             Application name
             </summary>
         </member>
+        <member name="P:AbpBlog.Domain.HotNews.HotNews.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:AbpBlog.Domain.HotNews.HotNews.Url">
+            <summary>
+            链接
+            </summary>
+        </member>
+        <member name="P:AbpBlog.Domain.HotNews.HotNews.SourceId">
+            <summary>
+            SourceId
+            </summary>
+        </member>
+        <member name="P:AbpBlog.Domain.HotNews.HotNews.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:AbpBlog.Domain.HotNews.Repositories.IHotNewsRepository">
+            <summary>
+            IHotNewsRepository
+            </summary>
+        </member>
+        <member name="M:AbpBlog.Domain.HotNews.Repositories.IHotNewsRepository.BulkInsertAsync(System.Collections.Generic.IEnumerable{AbpBlog.Domain.HotNews.HotNews})">
+            <summary>
+            批量插入
+            </summary>
+            <param name="hotNews"></param>
+            <returns></returns>
+        </member>
         <member name="T:AbpBlog.Domain.Wallpaper.Repositories.IWallpaperRepository">
             <summary>
             IWallpaperRepository

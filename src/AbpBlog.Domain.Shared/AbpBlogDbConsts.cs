@@ -22,6 +22,11 @@ namespace AbpBlog.Domain.Shared
             /// 手机壁纸
             /// </summary>
             public const string Wallpapers = "Wallpapers";
+
+            /// <summary>
+            /// 每日热点
+            /// </summary>
+            public const string HotNews = "HotNews";
         }
     }
 }

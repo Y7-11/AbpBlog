@@ -1,4 +1,5 @@
 ﻿using AbpBlog.Domain.Blog;
+using AbpBlog.Domain.HotNews;
 using AbpBlog.Domain.Shared;
 using AbpBlog.Domain.Wallpaper;
 using Microsoft.EntityFrameworkCore;
@@ -61,6 +62,17 @@ namespace AbpBlog.EntityFrameworkCore
                 b.Property(x => x.Url).HasMaxLength(200).IsRequired();
                 b.Property(x => x.Title).HasMaxLength(100).IsRequired();
                 b.Property(x => x.Type).HasColumnType("int").IsRequired();
+                b.Property(x => x.CreateTime).HasColumnType("datetime").IsRequired();
+            });
+
+            builder.Entity<HotNews>(b =>
+            {
+                b.ToTable(AbpBlogConsts.DbTablePrefix + DbTableName.HotNews);
+                b.HasKey(x => x.Id);
+                b.Property(x => x.Id).ValueGeneratedOnAdd();
+                b.Property(x => x.Title).HasMaxLength(200).IsRequired();
+                b.Property(x => x.Url).HasMaxLength(250).IsRequired();
+                b.Property(x => x.SourceId).HasColumnType("int").IsRequired();
                 b.Property(x => x.CreateTime).HasColumnType("datetime").IsRequired();
             });
         }
