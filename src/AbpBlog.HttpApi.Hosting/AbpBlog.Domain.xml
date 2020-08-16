@@ -133,6 +133,16 @@
             展示名称
             </summary>
         </member>
+        <member name="P:AbpBlog.Domain.Book.BookReptiles.ReptilesCount">
+            <summary>
+            爬次数
+            </summary>
+        </member>
+        <member name="P:AbpBlog.Domain.Book.BookReptiles.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
         <member name="T:AbpBlog.Domain.AppSettings">
             <summary>
             appsettings.json配置文件数据读取类

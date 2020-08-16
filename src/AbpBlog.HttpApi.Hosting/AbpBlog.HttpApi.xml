@@ -53,5 +53,12 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:AbpBlog.HttpApi.Controllers.HelloWorldController.Book(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

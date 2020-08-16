@@ -4,15 +4,17 @@ using AbpBlog;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
 namespace AbpBlog.Migrations
 {
     [DbContext(typeof(AbpBlogMigrationsDbContext))]
-    partial class AbpBlogMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200810143920_AddBook")]
+    partial class AddBook
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -148,35 +150,6 @@ namespace AbpBlog.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Abp_Book");
-                });
-
-            modelBuilder.Entity("AbpBlog.Domain.Book.BookReptiles", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ContentUrl")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("ReptilesCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Abp_BookReptiles");
                 });
 
             modelBuilder.Entity("AbpBlog.Domain.HotNews.HotNews", b =>

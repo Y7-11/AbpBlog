@@ -6,6 +6,7 @@ using System.Text;
 using Hangfire;
 using AbpBlog.BackgroundJobs.Jobs.Wallpapers;
 using AbpBlog.BackgroundJobs.Jobs.HotNews;
+using AbpBlog.BackgroundJobs.Jobs.Books;
 
 namespace AbpBlog.BackgroundJobs
 {
@@ -41,6 +42,17 @@ namespace AbpBlog.BackgroundJobs
             var job = service.GetService<HotNewsJob>();
 
             RecurringJob.AddOrUpdate("每日热点数据抓取", () => job.ExecuteAsync(), CronType.Hour(1, 2));
+        }
+
+        /// <summary>
+        /// 小说爬取
+        /// </summary>
+        /// <param name="context"></param>
+        public static void UseBookJob(this IServiceProvider service)
+        {
+            var job = service.GetService<BookJob>();
+
+            RecurringJob.AddOrUpdate("小说爬取", () => job.ExecuteAsync(), CronType.Day(1, 2));
         }
     }
 }

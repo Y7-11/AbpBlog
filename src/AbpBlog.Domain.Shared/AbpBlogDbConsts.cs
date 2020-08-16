@@ -27,6 +27,13 @@ namespace AbpBlog.Domain.Shared
             /// 每日热点
             /// </summary>
             public const string HotNews = "HotNews";
+
+            /// <summary>
+            /// 小说
+            /// </summary>
+            public const string Book = "Book";
+
+            public const string BookReptiles = "BookReptiles";
         }
     }
 }

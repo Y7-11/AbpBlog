@@ -1,4 +1,5 @@
 ﻿using AbpBlog.Domain.Blog;
+using AbpBlog.Domain.Book;
 using AbpBlog.Domain.HotNews;
 using AbpBlog.Domain.Wallpaper;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +27,10 @@ namespace AbpBlog.EntityFrameworkCore
         public DbSet<Wallpaper> Wallpapers { get; set; }
 
         public DbSet<HotNews> HotNews { get; set; }
+
+        public DbSet<Book> Books { get; set; }
+
+        public DbSet<BookReptiles> BookReptiles { get; set; }
 
         public AbpBlogDbContext(DbContextOptions<AbpBlogDbContext> options) : base(options)
         {

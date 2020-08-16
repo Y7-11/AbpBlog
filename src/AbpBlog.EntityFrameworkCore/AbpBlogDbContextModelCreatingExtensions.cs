@@ -1,4 +1,5 @@
 ﻿using AbpBlog.Domain.Blog;
+using AbpBlog.Domain.Book;
 using AbpBlog.Domain.HotNews;
 using AbpBlog.Domain.Shared;
 using AbpBlog.Domain.Wallpaper;
@@ -74,6 +75,28 @@ namespace AbpBlog.EntityFrameworkCore
                 b.Property(x => x.Url).HasMaxLength(250).IsRequired();
                 b.Property(x => x.SourceId).HasColumnType("int").IsRequired();
                 b.Property(x => x.CreateTime).HasColumnType("datetime").IsRequired();
+            });
+
+            builder.Entity<Book>(b =>
+            {
+                b.ToTable(AbpBlogConsts.DbTablePrefix + DbTableName.Book);
+                b.HasKey(x => x.Id);
+                b.Property(x => x.Id).ValueGeneratedOnAdd();
+                b.Property(x => x.Title).HasMaxLength(100);
+                b.Property(x => x.BookId).HasMaxLength(20);
+                b.Property(x => x.ContentUrl).HasMaxLength(200);
+                b.Property(x => x.WordsNumber).HasMaxLength(20);
+            });
+
+            builder.Entity<BookReptiles>(b =>
+            {
+                b.ToTable(AbpBlogConsts.DbTablePrefix + DbTableName.BookReptiles);
+                b.HasKey(x => x.Id);
+                b.Property(x => x.Title).HasMaxLength(100);
+                b.Property(x => x.ContentUrl).HasMaxLength(200);
+                b.Property(x => x.ReptilesCount).HasColumnType("int");
+                b.Property(x => x.CreationTime).HasColumnType("datetime").IsRequired();
+                b.Property(x => x.LastModificationTime).HasColumnType("datetime");
             });
         }
     }

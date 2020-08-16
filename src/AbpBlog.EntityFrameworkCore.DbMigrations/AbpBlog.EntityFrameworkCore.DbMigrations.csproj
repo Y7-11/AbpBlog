@@ -11,6 +11,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200721162720_Initial.cs" />
     <Compile Remove="Migrations\20200721162720_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200810143158_AddBook.cs" />
+    <Compile Remove="Migrations\20200810143158_AddBook.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
